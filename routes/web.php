@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\PostsController;
 
 
 /*
@@ -20,11 +21,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource(
-	'home', BlogController::class,
-);
-
-Route::resource(
-	'contact', ContactController::class,
-);
+Route::resource('home', BlogController::class);
+Route::resource('contact', ContactController::class);
+Route::get('post', [PostsController::class, 'index']);
 
